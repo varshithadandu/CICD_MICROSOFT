@@ -9,9 +9,9 @@ def client():
         yield client
 
 def test_home_endpoint(client):
-    response = client.get("/")  # Simulate a GET request to the home route
-    assert response.status_code == 200  # Check if status is OK
-    assert b"Iris Classifier API is Running!" in response.data  # Check response content
+    response = client.get("/")
+    assert response.status_code == 200
+    assert b"Iris Flower Classifier" in response.data  # Check for HTML title
 
 def test_predict_endpoint_valid_input(client):
     response = client.post(
